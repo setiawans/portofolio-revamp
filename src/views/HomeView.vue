@@ -1,0 +1,45 @@
+<template>
+  <div class="flex-1 flex flex-col justify-center items-center min-h-[70vh]">
+    <div class="text-center space-y-6">
+      <h1 class="text-5xl md:text-8xl font-bold font-mono text-black dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-hacker-green dark:to-white animate-pulse tracking-tighter">
+        HELLO WORLD
+      </h1>
+      <div class="text-xl md:text-3xl font-mono h-12 flex justify-center items-center">
+        <span class="text-gray-400 dark:text-gray-600 mr-3">&gt;</span>
+        <TyperEffect :text="titles[currentTitleIndex] || ''" :key="currentTitleIndex" class="text-black dark:text-hacker-green" />
+      </div>
+      <p class="max-w-xl mx-auto text-gray-700 dark:text-gray-400 mt-8 font-mono text-sm md:text-base leading-relaxed">
+        Welcome to my digital garden. I craft experiences on the web with a touch of cybersecurity and anime aesthetics.
+      </p>
+      
+      <div class="mt-12 flex justify-center gap-6">
+        <router-link to="/projects" class="px-8 py-3 border-2 border-black bg-black text-white hover:bg-white hover:text-black dark:border-hacker-green dark:bg-transparent dark:text-hacker-green dark:hover:bg-hacker-green dark:hover:text-black transition-all font-mono font-bold uppercase tracking-widest shadow-lg hover:shadow-none">
+          View Projects
+        </router-link>
+        <router-link to="/contact" class="px-8 py-3 border-2 border-black text-black hover:bg-black hover:text-white dark:border-gray-500 dark:text-gray-300 dark:hover:border-white dark:hover:text-white transition-all font-mono font-bold uppercase tracking-widest">
+          Contact Me
+        </router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import TyperEffect from '../components/TyperEffect.vue'
+
+const titles = [
+  "I am a Developer.",
+  "I am a Hacker.",
+  "I love Anime.",
+  "I build the Future."
+]
+
+const currentTitleIndex = ref(0)
+
+onMounted(() => {
+  setInterval(() => {
+    currentTitleIndex.value = (currentTitleIndex.value + 1) % titles.length
+  }, 4000)
+})
+</script>

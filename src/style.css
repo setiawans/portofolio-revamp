@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-hacker-green: #0f0;
+  --color-ink-black: #000;
+  --color-paper-white: #fff;
+}
+
+/* Background transition & Smooth Scroll */
+html {
+  @apply scroll-smooth;
+}
+body {
+  @apply transition-colors duration-500 ease-in-out font-sans overflow-x-hidden;
+}
+
+/* Default (Light Mode) */
+body {
+  @apply bg-paper-white text-ink-black;
+}
+
+/* Dark Mode */
+.dark body {
+  @apply bg-ink-black text-paper-white;
+}
+
+/* Scrollbar Adaptive */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-paper-white dark:bg-ink-black;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-ink-black dark:bg-zinc-800 rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-hacker-green;
+}
+
+/* Selection */
+::selection {
+  @apply bg-black text-white dark:bg-hacker-green dark:text-ink-black;
+}
