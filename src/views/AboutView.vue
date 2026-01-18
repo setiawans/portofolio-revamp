@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import meImg from '../assets/me.jpg'
+</script>
+
 <template>
   <div class="max-w-4xl mx-auto py-12">
     <h2 class="text-3xl font-mono text-black dark:text-hacker-green mb-8 border-b border-black dark:border-gray-800 pb-2">
@@ -7,19 +11,17 @@
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="order-2 md:order-1 space-y-6 text-gray-800 dark:text-gray-300 font-mono text-sm leading-relaxed p-4 border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-black/50">
         <p>
-          <span class="text-blue-600 dark:text-blue-400">const</span> <span class="text-yellow-600 dark:text-yellow-400">me</span> = {<br>
+          <span class="text-blue-600 dark:text-blue-400">const</span> <span class="text-yellow-600 dark:text-yellow-400">steven</span> = {<br>
           &nbsp;&nbsp;name: <span class="text-green-600 dark:text-green-400">'Steven Setiawan'</span>,<br>
-          &nbsp;&nbsp;role: <span class="text-green-600 dark:text-green-400">'Software Engineer'</span>,<br>
-          &nbsp;&nbsp;location: <span class="text-green-600 dark:text-green-400">'Indonesia'</span>,<br>
-          &nbsp;&nbsp;traits: [<span class="text-green-600 dark:text-green-400">'Creative'</span>, <span class="text-green-600 dark:text-green-400">'Curious'</span>, <span class="text-green-600 dark:text-green-400">'Otaku'</span>]<br>
+          &nbsp;&nbsp;role: <span class="text-green-600 dark:text-green-400">'Student'</span>,<br>
+          &nbsp;&nbsp;specialties: [<span class="text-green-600 dark:text-green-400">'CTF'</span>, <span class="text-green-600 dark:text-green-400">'Full-Stack'</span>]<br>
           };
         </p>
         <p>
-          I am a passionate developer who loves to explore the intersection of technology and art. 
-          When I'm not coding, you can find me watching anime, reading manga, or playing CTFs.
+          I'm a Computer Science student at Universitas Indonesia with a passion for cybersecurity and software development. As a multiple-time national CTF champion, I bridge the gap between security and development, where i build robust systems while finding ways to break them.
         </p>
         <p>
-          My goal is to create web experiences that are not only functional but also visually stunning and immersive.
+          When I'm not competing in CTFs or teaching as a TA, I'm exploring new tech, architecting full-stack applications, or diving deep into cryptography and digital forensics.
         </p>
       </div>
       
@@ -27,7 +29,7 @@
         <!-- Placeholder for profile image -->
         <div class="w-64 h-64 border-2 border-black dark:border-hacker-green/50 rounded-full overflow-hidden relative group">
           <div class="absolute inset-0 bg-black/10 dark:bg-hacker-green/20 group-hover:bg-transparent transition-all"></div>
-          <img src="https://ui-avatars.com/api/?name=Steven+Setiawan&background=0a0a0a&color=fff&size=256" alt="Profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+          <img :src="meImg" alt="Profile" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
           
           <!-- Ring 1: Clockwise -->
           <div class="absolute inset-0 border-[4px] border-t-black dark:border-t-hacker-green border-r-transparent border-b-black dark:border-b-white border-l-transparent rounded-full animate-spin-slow"></div>
