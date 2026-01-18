@@ -68,7 +68,7 @@ const projects = [
   {
     title: "PandaCare",
     description: "Comprehensive healthcare platform featuring doctor consultations and real-time chat.",
-    tags: ["Next.js", "TypeScript", "Microservices"],
+    tags: ["Full-Stack", "DevOps", "Microservices"],
     link: "https://github.com/orgs/Adpro-Genap-2024-2025-A05/repositories",
     image: pandacareImg
   },
