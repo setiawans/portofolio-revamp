@@ -6,8 +6,9 @@
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div v-for="(project, index) in projects" :key="index" class="group bg-paper-white dark:bg-black border border-black dark:border-gray-800 hover:border-black dark:hover:border-hacker-green transition-all overflow-hidden relative shadow-sm hover:shadow-[4px_4px_0px_#000] dark:hover:shadow-[0_0_10px_#0f0]">
-        <div class="h-48 bg-gray-100 dark:bg-gray-900 relative overflow-hidden flex items-center justify-center border-b border-black dark:border-gray-800">
-          <div class="text-gray-400 font-mono text-xs">
+        <div class="bg-gray-100 dark:bg-gray-900 relative overflow-hidden border-b border-black dark:border-gray-800">
+          <img v-if="project.image" :src="project.image" :alt="project.title" class="w-full aspect-video object-cover grayscale group-hover:grayscale-0 transition-all duration-300" />
+          <div v-else class="h-48 flex items-center justify-center text-gray-400 font-mono text-xs">
             [IMG_{{ index }}]
           </div>
           <div class="absolute inset-0 bg-black/0 dark:bg-hacker-green/0 group-hover:bg-black/5 dark:group-hover:bg-hacker-green/10 transition-colors"></div>
@@ -25,7 +26,7 @@
               {{ tag }}
             </span>
           </div>
-          <a href="#" class="inline-block text-xs font-mono text-black dark:text-hacker-green hover:underline uppercase tracking-wider">
+          <a :href="project.link || '#'" :target="project.link ? '_blank' : ''" class="inline-block text-xs font-mono text-black dark:text-hacker-green hover:underline uppercase tracking-wider">
             View Source &gt;
           </a>
         </div>
@@ -35,26 +36,55 @@
 </template>
 
 <script setup lang="ts">
+import quickclipImg from '@/assets/quickclip.jpeg'
+import pandacareImg from '@/assets/pandacare.jpeg'
+import copilotImg from '@/assets/copilot.jpeg'
+import writeupImg from '@/assets/writeup.jpeg'
+import compfestImg from '@/assets/compfest.jpeg'
+import portfolioImg from '@/assets/portfolio.jpeg'
+
 const projects = [
   {
     title: "Portfolio Website",
     description: "The website you are looking at right now. Built with Vue 3, Tailwind CSS, and a touch of cyber magic.",
-    tags: ["Vue", "Tailwind", "TypeScript"]
+    tags: ["Vue", "Tailwind", "TypeScript"],
+    link: "https://github.com/setiawans/portofolio-revamp",
+    image: portfolioImg
   },
   {
-    title: "CTF Tool",
-    description: "A set of tools for solving Capture The Flag challenges. Includes decoders, encoders, and common exploit scripts.",
-    tags: ["Python", "Bash", "Security"]
+    title: "QuickClip",
+    description: "SaaS Pastebin and URL shortener. Built with React, Node.js, PostgreSQL, and AWS S3, deployed on Kubernetes.",
+    tags: ["React", "Node.js", "Kubernetes", "Database"],
+    link: "https://github.com/mir4na/quickclip",
+    image: quickclipImg
   },
   {
-    title: "Anime Tracker",
-    description: "A web application to track watched anime, integrated with public APIs.",
-    tags: ["React", "API", "Node.js"]
+    title: "Learning Assistant Chatbot",
+    description: "AI-powered chatbot for learning assistance, featuring material recommendations and interactive chat.",
+    tags: ["Next.js", "TypeScript", "Supabase"],
+    link: "https://github.com/setiawans/learning-assistant-chatbot",
+    image: copilotImg
   },
   {
-    title: "Cyber Visualizer",
-    description: "Visualizing network traffic in a cool 3D interface.",
-    tags: ["Three.js", "WebGL"]
+    title: "PandaCare",
+    description: "Comprehensive healthcare platform featuring doctor consultations and real-time chat.",
+    tags: ["Next.js", "TypeScript", "Microservices"],
+    link: "https://github.com/orgs/Adpro-Genap-2024-2025-A05/repositories",
+    image: pandacareImg
+  },
+  {
+    title: "COMPFEST 17",
+    description: "Created cryptography challenges for the qualification and final round.",
+    tags: ["Challenge Author", "Cryptography"],
+    link: "https://github.com/ctf-compfest-17/quals-challenges",
+    image: compfestImg
+  },
+  {
+    title: "CTF Writeups",
+    description: "A documentation of my journey through various CTF challenges, focusing on cryptography.",
+    tags: ["CTF", "Cryptography"],
+    link: "https://tipsen.gitbook.io/notes",
+    image: writeupImg
   }
 ]
 </script>

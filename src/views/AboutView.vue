@@ -14,7 +14,7 @@ import meImg from '../assets/me.jpg'
           <span class="text-blue-600 dark:text-blue-400">const</span> <span class="text-yellow-600 dark:text-yellow-400">steven</span> = {<br>
           &nbsp;&nbsp;name: <span class="text-green-600 dark:text-green-400">'Steven Setiawan'</span>,<br>
           &nbsp;&nbsp;role: <span class="text-green-600 dark:text-green-400">'Student'</span>,<br>
-          &nbsp;&nbsp;specialties: [<span class="text-green-600 dark:text-green-400">'CTF'</span>, <span class="text-green-600 dark:text-green-400">'Full-Stack'</span>]<br>
+          &nbsp;&nbsp;specialties: [<span class="text-green-600 dark:text-green-400">'CTF'</span>, <span class="text-green-600 dark:text-green-400">'Full-Stack'</span>, <span class="text-green-600 dark:text-green-400">'DevOps'</span>]<br>
           };
         </p>
         <p>

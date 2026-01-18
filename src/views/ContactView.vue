@@ -24,7 +24,7 @@
         <div class="flex flex-wrap gap-4 pt-4">
           <HackerButton 
             text="GitHub" 
-            href="https://github.com/tipsen" 
+            href="https://github.com/setiawans" 
             variant="pill"
           >
             <template #icon>
@@ -34,7 +34,7 @@
 
           <HackerButton 
             text="Email" 
-            href="mailto:tipsen@example.com" 
+            href="mailto:stevensetiawan1802@gmail.com" 
             variant="pill"
           >
             <template #icon>
@@ -44,7 +44,7 @@
 
            <HackerButton 
             text="LinkedIn" 
-            href="#" 
+            href="https://www.linkedin.com/in/stevensetiawan/" 
             variant="pill"
           >
              <template #icon>
