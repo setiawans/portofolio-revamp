@@ -75,7 +75,7 @@ const projects = [
   {
     title: "COMPFEST 17",
     description: "Created cryptography challenges for the qualification and final round.",
-    tags: ["Challenge Author", "Cryptography"],
+    tags: ["Problemsetting", "CTF", "Cryptography"],
     link: "https://github.com/ctf-compfest-17/quals-challenges",
     image: compfestImg
   },
