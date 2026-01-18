@@ -12,8 +12,8 @@
         <div class="bg-white dark:bg-white/5 p-6 rounded border border-gray-200 dark:border-white/10 hover:border-black dark:hover:border-hacker-green/50 transition-all shadow-sm">
           <span class="text-xs font-mono text-gray-500 dark:text-hacker-green mb-1 block">{{ exp.period }}</span>
           <h3 class="text-xl font-bold text-black dark:text-white mb-1">{{ exp.role }}</h3>
-          <h4 class="text-blue-600 dark:text-blue-400 mb-4 text-sm font-mono">{{ exp.company }}</h4>
-          <p class="text-gray-600 dark:text-gray-400 text-sm">{{ exp.description }}</p>
+          <h4 class="text-blue-600 dark:text-blue-400 mb-4 text-sm font-mono">{{ exp.company }} • {{ exp.location }}</h4>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{{ exp.description }}</p>
         </div>
       </div>
     </div>
@@ -23,22 +23,25 @@
 <script setup lang="ts">
 const experiences = [
   {
-    period: "2024 - Present",
-    role: "Senior Frontend Engineer",
-    company: "Tech Corp",
-    description: "Leading the frontend team in building next-gen web applications using Vue 3 and TypeScript."
+    period: "Jul 2024 - Present",
+    role: "Teaching Assistant",
+    company: "Universitas Indonesia",
+    location: "Depok, Indonesia",
+    description: "Coordinating TA programs for Introduction to Digital Systems and Computer Organization, supporting 100+ students per semester. Also, serving as TA for Foundations of Programming 1, Operating Systems, and Numerical Analysis, mentoring students through complex concepts including microprocessors, assembly language, OS principles, and computational mathematics."
   },
   {
-    period: "2022 - 2024",
-    role: "Web Developer",
-    company: "Creative Studio",
-    description: "Developed interactive websites for various clients, focusing on animations and user experience."
+    period: "Jul 2025 - Sep 2025",
+    role: "Software Engineer Intern",
+    company: "Gradient",
+    location: "Depok, Indonesia",
+    description: "Developed AI-integrated learning feature with GPT-based conversational interface, boosting AI feature usage by 100%. Implemented payment feature using React Native for cross-platform mobile applications and conducted comprehensive security testing to strengthen authentication mechanisms."
   },
   {
-    period: "2020 - 2022",
-    role: "Junior Developer",
-    company: "StartUp Inc",
-    description: "Assisted in the development of the company's main product. Learned the ropes of full-stack development."
+    period: "Dec 2024 - Mar 2025",
+    role: "Ransomware Prevention R&D Team Member",
+    company: "MarkAny GaneshaIT",
+    location: "Jakarta, Indonesia",
+    description: "Performed feature extraction from I/O Request Packet (IRP) data for LLM-based classification models to distinguish malware from benign processes. Implemented end-to-end integration of ransomware detection pipeline and refactored codebase to improve maintainability for production deployment."
   }
 ]
 </script>
