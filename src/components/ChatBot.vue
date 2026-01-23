@@ -91,11 +91,17 @@ Education:
   - Coursework: Data Structures & Algorithms, OS, Advanced Programming, AI & Data Science, Ethical Hacking
 
 Honors & Awards:
+- 2nd Place, TECHCOMFEST CTF 2026 | Politeknik Negeri Semarang
+- 1st Place, National Cyber Week 2025 | Binus University
 - 1st Place, Schematics 2025 CTF | ITS
 - 1st Place, GEMASTIK XVIII Cybersecurity | Kemendikbudristek
+- 1st Place, Wreck IT 6.0 | Politeknik Sandi dan Siber Negara
 - 2nd Place, The ACE CTF 2025 | UNDIP
 - 4th Place, TSA Cyber Champion | Kominfo
-(And many other CTF wins)
+- 2nd Place, IT Festival 2025 | IPB
+- 2nd Place, Find IT 2025 | UGM
+- 2nd Place, Slashroot 8.0 CTF | ITB Stikom Bali
+- 3rd Place, HOLOGY 7.0 CTF | Universitas Brawijaya
 
 Work Experience:
 - Teaching Assistant @ Universitas Indonesia (Jul 2024 — Present): Mentoring students in OS, Computer Org, Digital Systems, and Programming.
@@ -103,6 +109,7 @@ Work Experience:
 - Ransomware Prevention R&D @ MarkAny GaneshaIT (Dec 2024 — Mar 2025): Malware classification (LLM based), ransomware detection pipeline (driver level).
 
 Projects:
+- QuickClip: SaaS Pastebin and URL Shortener (React, Node.js, Kubernetes, Database)
 - Copilot Learning Assistant: AI educational chatbot (Next.js, TypeScript, Gemini API, Supabase).
 - PandaCare: Healthcare management system (Microservices, CI/CD, Prometheus/Grafana).
 
