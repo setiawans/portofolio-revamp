@@ -47,7 +47,19 @@
         
         <!-- Main Image -->
         <div class="relative w-full aspect-video flex items-center justify-center rounded-lg overflow-hidden border border-gray-800 bg-black/20 pointer-events-auto">
-           <img v-if="currentGalleryImage" :src="currentGalleryImage" :alt="selectedAchievement.title" class="w-full h-full object-contain" />
+           <!-- Loading Spinner -->
+           <div v-if="imageLoading" class="absolute inset-0 flex items-center justify-center">
+              <div class="w-8 h-8 border-4 border-gray-500 border-t-black dark:border-t-hacker-green rounded-full animate-spin"></div>
+           </div>
+           
+           <img 
+               v-if="currentGalleryImage" 
+               :src="currentGalleryImage" 
+               :alt="selectedAchievement.title" 
+               class="w-full h-full object-contain transition-opacity duration-300"
+               :class="imageLoading ? 'opacity-0' : 'opacity-100'"
+               @load="imageLoading = false"
+           />
            
            <!-- Navigation Buttons -->
            <button v-if="hasMultipleImages" @click.stop="prevImage" class="hidden md:block absolute left-4 p-2 rounded-full backdrop-blur-sm border transition-all bg-white/80 text-black border-black/10 hover:bg-black hover:text-white dark:bg-black/50 dark:text-white dark:border-white/10 dark:hover:bg-hacker-green dark:hover:text-black z-20">
@@ -130,6 +142,7 @@ interface Achievement {
 
 const selectedAchievement = ref<Achievement | null>(null)
 const currentImageIndex = ref(0)
+const imageLoading = ref(true)
 
 const openGallery = (item: Achievement) => {
   if (item.gallery && item.gallery.length > 0) {
@@ -158,6 +171,12 @@ const prevImage = () => {
 
 const currentGalleryImage = computed(() => {
   return selectedAchievement.value?.gallery?.[currentImageIndex.value]
+})
+
+// watch currentGalleryImage to set loading to true when it changes
+import { watch } from 'vue' // Ensure watch is imported
+watch(currentGalleryImage, () => {
+    imageLoading.value = true
 })
 
 const hasMultipleImages = computed(() => {
