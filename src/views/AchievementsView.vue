@@ -43,17 +43,17 @@
     <!-- Gallery Modal -->
     <div v-if="selectedAchievement" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm pt-20" @click.self="closeGallery">
       
-      <div class="relative w-[58vw] bg-transparent flex flex-col items-center pointer-events-none">
+      <div class="relative w-[95vw] md:w-[80vw] lg:w-[60vw] bg-transparent flex flex-col items-center pointer-events-none">
         
         <!-- Main Image -->
         <div class="relative w-full aspect-video flex items-center justify-center rounded-lg overflow-hidden border border-gray-800 bg-black/20 pointer-events-auto">
            <img v-if="currentGalleryImage" :src="currentGalleryImage" :alt="selectedAchievement.title" class="w-full h-full object-contain" />
            
            <!-- Navigation Buttons -->
-           <button v-if="hasMultipleImages" @click.stop="prevImage" class="absolute left-4 p-2 rounded-full backdrop-blur-sm border transition-all bg-white/80 text-black border-black/10 hover:bg-black hover:text-white dark:bg-black/50 dark:text-white dark:border-white/10 dark:hover:bg-hacker-green dark:hover:text-black">
+           <button v-if="hasMultipleImages" @click.stop="prevImage" class="hidden md:block absolute left-4 p-2 rounded-full backdrop-blur-sm border transition-all bg-white/80 text-black border-black/10 hover:bg-black hover:text-white dark:bg-black/50 dark:text-white dark:border-white/10 dark:hover:bg-hacker-green dark:hover:text-black z-20">
              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
            </button>
-           <button v-if="hasMultipleImages" @click.stop="nextImage" class="absolute right-4 p-2 rounded-full backdrop-blur-sm border transition-all bg-white/80 text-black border-black/10 hover:bg-black hover:text-white dark:bg-black/50 dark:text-white dark:border-white/10 dark:hover:bg-hacker-green dark:hover:text-black">
+           <button v-if="hasMultipleImages" @click.stop="nextImage" class="hidden md:block absolute right-4 p-2 rounded-full backdrop-blur-sm border transition-all bg-white/80 text-black border-black/10 hover:bg-black hover:text-white dark:bg-black/50 dark:text-white dark:border-white/10 dark:hover:bg-hacker-green dark:hover:text-black z-20">
              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
            </button>
         </div>

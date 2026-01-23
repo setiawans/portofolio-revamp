@@ -61,12 +61,25 @@ const animate = (time: number) => {
   draw(ctx, canvas.value.width, canvas.value.height)
 }
 
+let lastWidth = 0
+
 const resize = () => {
   if (!canvas.value) return
-  canvas.value.width = window.innerWidth
-  canvas.value.height = window.innerHeight
-  columns = Math.floor(canvas.value.width / fontSize)
-  drops = Array(columns).fill(1)
+  
+  const width = window.innerWidth
+  const height = window.innerHeight
+  
+  // Always update dimensions to match viewport
+  canvas.value.width = width
+  canvas.value.height = height
+
+  // Only reset drops if width changes (e.g. orientation change)
+  // This prevents restart on mobile scroll (address bar hide/show)
+  if (width !== lastWidth) {
+    columns = Math.floor(width / fontSize)
+    drops = Array(columns).fill(1)
+    lastWidth = width
+  }
 }
 
 onMounted(() => {

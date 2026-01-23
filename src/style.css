@@ -44,3 +44,12 @@ body {
 ::selection {
   @apply bg-black text-white dark:bg-hacker-green dark:text-ink-black;
 }
+
+/* Utility to hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
