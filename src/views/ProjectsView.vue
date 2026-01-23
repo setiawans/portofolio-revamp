@@ -11,7 +11,7 @@
           <div v-else class="h-48 flex items-center justify-center text-gray-400 font-mono text-xs">
             [IMG_{{ index }}]
           </div>
-          <div class="absolute inset-0 bg-black/0 dark:bg-hacker-green/0 group-hover:bg-black/5 dark:group-hover:bg-hacker-green/10 transition-colors"></div>
+          <div class="absolute inset-0 bg-black/0 dark:bg-hacker-green/0 group-hover:bg-black/5 transition-colors"></div>
         </div>
         
         <div class="p-6">
@@ -36,12 +36,12 @@
 </template>
 
 <script setup lang="ts">
-import quickclipImg from '@/assets/quickclip.jpeg'
-import pandacareImg from '@/assets/pandacare.jpeg'
-import copilotImg from '@/assets/copilot.jpeg'
-import writeupImg from '@/assets/writeup.jpeg'
-import compfestImg from '@/assets/compfest.jpeg'
-import portfolioImg from '@/assets/portfolio.jpeg'
+import quickclipImg from '@/assets/projects/quickclip.jpeg'
+import pandacareImg from '@/assets/projects/pandacare.jpeg'
+import copilotImg from '@/assets/projects/copilot.jpeg'
+import writeupImg from '@/assets/projects/writeup.jpeg'
+import compfestImg from '@/assets/projects/compfest.jpeg'
+import portfolioImg from '@/assets/projects/portfolio.jpeg'
 
 const projects = [
   {

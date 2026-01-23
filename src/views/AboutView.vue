@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import meImg from '../assets/me.jpg'
+import meImg from '../assets/about/me.jpg'
 </script>
 
 <template>

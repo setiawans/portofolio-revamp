@@ -28,20 +28,32 @@
     </div>
 
     <!-- Mobile Nav -->
-    <div v-if="isOpen" class="md:hidden bg-paper-white dark:bg-ink-black border-b border-black/10 dark:border-hacker-green/30">
-      <nav class="flex flex-col p-4 space-y-4 font-mono text-sm">
-         <router-link @click="isOpen = false" to="/" class="nav-link-mobile">./home</router-link>
-         <router-link @click="isOpen = false" to="/about" class="nav-link-mobile">./about</router-link>
-         <router-link @click="isOpen = false" to="/experience" class="nav-link-mobile">./experience</router-link>
-         <router-link @click="isOpen = false" to="/projects" class="nav-link-mobile">./projects</router-link>
-         <router-link @click="isOpen = false" to="/achievements" class="nav-link-mobile">./achievements</router-link>
-         <router-link @click="isOpen = false" to="/contact" class="nav-link-mobile">./contact</router-link>
-         <div class="pt-4 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center">
-            <span class="text-black dark:text-white text-xs">Theme: {{ isDark ? 'DARK' : 'LIGHT' }}</span>
-            <button @click="toggleDark()" class="text-xs border px-2 py-1 rounded border-black dark:border-hacker-green text-black dark:text-hacker-green">TOGGLE</button>
-         </div>
-      </nav>
-    </div>
+    <transition
+      enter-active-class="transition duration-300 ease-out"
+      enter-from-class="transform -translate-y-4 opacity-0"
+      enter-to-class="transform translate-y-0 opacity-100"
+      leave-active-class="transition duration-200 ease-in"
+      leave-from-class="transform translate-y-0 opacity-100"
+      leave-to-class="transform -translate-y-4 opacity-0"
+    >
+      <div v-if="isOpen" class="md:hidden bg-paper-white dark:bg-ink-black border-b border-black/10 dark:border-hacker-green/30 shadow-lg">
+        <nav class="flex flex-col p-6 space-y-6 font-mono text-base">
+           <router-link @click="isOpen = false" to="/" class="nav-link-mobile">./home</router-link>
+           <router-link @click="isOpen = false" to="/about" class="nav-link-mobile">./about</router-link>
+           <router-link @click="isOpen = false" to="/experience" class="nav-link-mobile">./experience</router-link>
+           <router-link @click="isOpen = false" to="/projects" class="nav-link-mobile">./projects</router-link>
+           <router-link @click="isOpen = false" to="/achievements" class="nav-link-mobile">./achievements</router-link>
+           <router-link @click="isOpen = false" to="/contact" class="nav-link-mobile">./contact</router-link>
+           
+           <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center group cursor-pointer" @click="toggleDark()">
+              <span class="text-black dark:text-white text-sm font-bold group-hover:text-hacker-green transition-colors">THEME SYSTEM: {{ isDark ? 'MATRIX' : 'NK' }}</span>
+              <div class="relative w-10 h-5 bg-gray-300 dark:bg-gray-800 rounded-full transition-colors border border-black dark:border-hacker-green">
+                <div class="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300" :class="isDark ? 'translate-x-5 bg-hacker-green' : 'translate-x-0 bg-black'"></div>
+              </div>
+           </div>
+        </nav>
+      </div>
+    </transition>
   </header>
 </template>
 
