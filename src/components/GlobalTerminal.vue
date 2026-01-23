@@ -172,10 +172,10 @@ const execute = () => {
     case 'theme':
       if (param === 'light' || param === 'ink') {
          isDark.value = false
-         addLog('Theme switched to [INK / LIGHT]')
+         addLog('Theme switched to [LIGHT]')
       } else if (param === 'dark' || param === 'matrix') {
          isDark.value = true
-         addLog('Theme switched to [MATRIX / DARK]')
+         addLog('Theme switched to [DARK]')
       } else {
          toggleDark()
          addLog(`Theme toggled.`)

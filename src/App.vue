@@ -10,7 +10,7 @@ import GlobalTerminal from './components/GlobalTerminal.vue'
     <MatrixBackground />
     <TerminalHeader />
 
-    <main class="relative z-10 pt-20 px-4 min-h-[calc(100vh-80px)] container mx-auto flex flex-col">
+    <main class="relative z-10 pt-16 md:pt-20 px-4 min-h-[calc(100dvh-80px)] container mx-auto flex flex-col">
       <router-view v-slot="{ Component }">
         <transition name="page" mode="out-in">
           <component :is="Component" />

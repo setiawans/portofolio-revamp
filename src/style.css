@@ -13,7 +13,7 @@ html {
   @apply scroll-smooth;
 }
 body {
-  @apply transition-colors duration-500 ease-in-out font-sans overflow-x-hidden;
+  @apply transition-colors duration-[1500ms] ease-in-out font-sans overflow-x-hidden;
 }
 
 /* Default (Light Mode) */

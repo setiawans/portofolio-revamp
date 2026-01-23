@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-6xl mx-auto py-12">
+  <div class="max-w-6xl mx-auto py-6 md:py-12">
     <h2 class="text-3xl font-mono text-black dark:text-hacker-green mb-12 border-b border-black dark:border-gray-800 pb-2">
       <span class="text-gray-500 dark:text-white mr-2">$</span>ls ./projects
     </h2>

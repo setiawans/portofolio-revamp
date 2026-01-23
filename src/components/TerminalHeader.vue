@@ -16,14 +16,17 @@
         <router-link to="/contact" class="nav-link">./contact</router-link>
         
         <!-- Hardware Switch Theme Toggle -->
-        <button @click="toggleDark()" class="ml-4 w-12 h-6 rounded-full bg-gray-300 dark:bg-gray-800 p-1 relative transition-colors duration-500 focus:outline-none ring-1 ring-black dark:ring-hacker-green">
-          <div class="w-4 h-4 rounded-full bg-white shadow-md transform transition-transform duration-500" :class="isDark ? 'translate-x-6 bg-hacker-green' : 'translate-x-0 bg-black'"></div>
+        <!-- Hardware Switch Theme Toggle -->
+        <button @click="toggleDark()" class="ml-4 w-11 h-6 rounded-full p-0.5 relative transition-colors duration-[1500ms] focus:outline-none border-2 border-gray-400 dark:border-hacker-green bg-gray-200 dark:bg-black/80 overflow-hidden group">
+          <div class="w-4 h-4 rounded-full shadow-sm transform transition-transform duration-[1500ms] relative z-10" 
+               :class="isDark ? 'translate-x-5 bg-hacker-green' : 'translate-x-0 bg-gray-500 group-hover:bg-black'">
+          </div>
         </button>
       </nav>
 
       <!-- Mobile Menu Toggle -->
-      <button @click="isOpen = !isOpen" class="md:hidden text-black dark:text-hacker-green">
-        <component :is="isOpen ? 'X' : 'Menu'" />
+      <button @click="isOpen = !isOpen" class="md:hidden text-black dark:text-hacker-green z-[100] relative">
+        <component :is="isOpen ? X : Menu" />
       </button>
     </div>
 
@@ -36,7 +39,7 @@
       leave-from-class="transform translate-y-0 opacity-100"
       leave-to-class="transform -translate-y-4 opacity-0"
     >
-      <div v-if="isOpen" class="md:hidden bg-paper-white dark:bg-ink-black border-b border-black/10 dark:border-hacker-green/30 shadow-lg">
+      <div v-if="isOpen" class="md:hidden bg-paper-white dark:bg-ink-black border-b border-black/10 dark:border-hacker-green/30 shadow-lg absolute top-full left-0 w-full">
         <nav class="flex flex-col p-6 space-y-6 font-mono text-base">
            <router-link @click="isOpen = false" to="/" class="nav-link-mobile">./home</router-link>
            <router-link @click="isOpen = false" to="/about" class="nav-link-mobile">./about</router-link>
@@ -45,15 +48,10 @@
            <router-link @click="isOpen = false" to="/achievements" class="nav-link-mobile">./achievements</router-link>
            <router-link @click="isOpen = false" to="/contact" class="nav-link-mobile">./contact</router-link>
            
-           <button @click="handleTerminalClick" class="nav-link-mobile flex items-center space-x-2 w-full text-left group">
-              <component :is="'Terminal'" class="w-4 h-4 mr-2" />
-              <span>>_ TERMINAL ACCESS</span>
-           </button>
-           
            <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center group cursor-pointer" @click="toggleDark()">
-              <span class="text-black dark:text-white text-sm font-bold group-hover:text-hacker-green transition-colors">THEME SYSTEM: {{ isDark ? 'MATRIX' : 'NK' }}</span>
-              <div class="relative w-10 h-5 bg-gray-300 dark:bg-gray-800 rounded-full transition-colors border border-black dark:border-hacker-green">
-                <div class="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300" :class="isDark ? 'translate-x-5 bg-hacker-green' : 'translate-x-0 bg-black'"></div>
+              <span class="text-black dark:text-white text-sm font-bold dark:group-hover:text-hacker-green transition-colors">THEME: {{ isDark ? 'DARK' : 'LIGHT' }}</span>
+              <div class="relative w-11 h-6 rounded-full p-0.5 transition-colors duration-[1500ms] border-2 border-gray-400 dark:border-hacker-green bg-gray-200 dark:bg-black/80 overflow-hidden">
+                <div class="w-4 h-4 rounded-full shadow-sm transform transition-transform duration-[1500ms] relative z-10" :class="isDark ? 'translate-x-5 bg-hacker-green' : 'translate-x-0 bg-gray-500 group-hover:bg-black'"></div>
               </div>
            </div>
         </nav>
@@ -65,24 +63,17 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { Menu, X, Terminal } from 'lucide-vue-next'
+import { Menu, X } from 'lucide-vue-next'
 import { useDark, useToggle } from '@vueuse/core'
-import { useTerminal } from '../composables/useTerminal'
 
 const route = useRoute()
 const isOpen = ref(false)
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
-const { toggle: toggleTerminal } = useTerminal()
 
 const currentRouteName = computed(() => {
   return route.name?.toString().toLowerCase() || 'home'
 })
-
-const handleTerminalClick = () => {
-    isOpen.value = false
-    toggleTerminal()
-}
 </script>
 
 <style scoped>
