@@ -45,6 +45,11 @@
            <router-link @click="isOpen = false" to="/achievements" class="nav-link-mobile">./achievements</router-link>
            <router-link @click="isOpen = false" to="/contact" class="nav-link-mobile">./contact</router-link>
            
+           <button @click="handleTerminalClick" class="nav-link-mobile flex items-center space-x-2 w-full text-left group">
+              <component :is="'Terminal'" class="w-4 h-4 mr-2" />
+              <span>>_ TERMINAL ACCESS</span>
+           </button>
+           
            <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex justify-between items-center group cursor-pointer" @click="toggleDark()">
               <span class="text-black dark:text-white text-sm font-bold group-hover:text-hacker-green transition-colors">THEME SYSTEM: {{ isDark ? 'MATRIX' : 'NK' }}</span>
               <div class="relative w-10 h-5 bg-gray-300 dark:bg-gray-800 rounded-full transition-colors border border-black dark:border-hacker-green">
@@ -60,17 +65,24 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { Menu, X } from 'lucide-vue-next'
+import { Menu, X, Terminal } from 'lucide-vue-next'
 import { useDark, useToggle } from '@vueuse/core'
+import { useTerminal } from '../composables/useTerminal'
 
 const route = useRoute()
 const isOpen = ref(false)
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+const { toggle: toggleTerminal } = useTerminal()
 
 const currentRouteName = computed(() => {
   return route.name?.toString().toLowerCase() || 'home'
 })
+
+const handleTerminalClick = () => {
+    isOpen.value = false
+    toggleTerminal()
+}
 </script>
 
 <style scoped>

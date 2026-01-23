@@ -41,13 +41,13 @@
     </div>
   </div>
   
-  <!-- Launcher (Visible when minimized) - Mobile Optimization -->
+  <!-- Launcher (Visible when minimized) - Desktop Only -->
   <button 
     v-else 
     @click="toggle" 
-    class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-black dark:bg-black text-white dark:text-hacker-green border-2 border-black dark:border-hacker-green px-4 py-2 md:px-6 md:py-3 font-mono text-xs md:text-sm font-bold z-[50] hover:bg-white hover:text-black dark:hover:bg-hacker-green dark:hover:text-black transition-all shadow-[4px_4px_0px_rgba(0,0,0,0.5)] dark:shadow-[0_0_15px_rgba(0,255,0,0.4)] active:scale-95 active:shadow-none"
+    class="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-black dark:bg-black text-white dark:text-hacker-green border-2 border-black dark:border-hacker-green px-6 py-3 font-mono text-sm font-bold z-[50] hover:bg-white hover:text-black dark:hover:bg-hacker-green dark:hover:text-black transition-all shadow-[4px_4px_0px_rgba(0,0,0,0.5)] dark:shadow-[0_0_15px_rgba(0,255,0,0.4)] hidden lg:block"
   >
-    >_ TERM
+    >_ TERMINAL
   </button>
 </template>
 
@@ -55,12 +55,13 @@
 import { ref, nextTick, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDark, useToggle } from '@vueuse/core'
+import { useTerminal } from '../composables/useTerminal'
 
 const router = useRouter()
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+const { visible, toggle, close } = useTerminal()
 
-const visible = ref(false)
 const command = ref('')
 const history = ref<{time: string, content: string}[]>([])
 const inputRef = ref<HTMLInputElement | null>(null)
@@ -80,12 +81,11 @@ const readmeContent = `
 </div>
 `
 
-const toggle = () => {
-  visible.value = !visible.value
-  if (visible.value) {
+watch(visible, (newVal) => {
+  if (newVal) {
     nextTick(() => inputRef.value?.focus())
   }
-}
+})
 
 const addLog = (content: string) => {
   const time = new Date().toLocaleTimeString('en-US', { hour12: false })
@@ -158,14 +158,14 @@ const execute = () => {
             // Interaction delay for effect
             setTimeout(() => {
                 router.push(target)
-                visible.value = false // Auto-minimize
+                close() // Auto-minimize
             }, 600)
         } else {
             addLog(`cd: no such file or directory: ${param}`)
         }
       } else {
           router.push('/')
-          visible.value = false
+          close()
       }
       break
       

@@ -109,8 +109,8 @@ import wreckitImg1 from '@/assets/achievements/wreckit/1.png'
 import theaceImg1 from '@/assets/achievements/theace/1.png'
 import theaceImg2 from '@/assets/achievements/theace/2.png'
 
-import itfestImg1 from '@/assets/achievements/itfest/1.jpg'
-import itfestImg2 from '@/assets/achievements/itfest/2.jpg'
+import itfestImg1 from '@/assets/achievements/itfest/1.JPG'
+import itfestImg2 from '@/assets/achievements/itfest/2.JPG'
 
 import finditImg1 from '@/assets/achievements/findit/1.png'
 
