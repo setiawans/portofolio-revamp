@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import { Analytics } from '@vercel/analytics/vue'
+import { SpeedInsights } from '@vercel/speed-insights/vue'
 import MatrixBackground from './components/MatrixBackground.vue'
 import TerminalHeader from './components/TerminalHeader.vue'
 import GlobalTerminal from './components/GlobalTerminal.vue'
@@ -9,6 +10,7 @@ import GlobalTerminal from './components/GlobalTerminal.vue'
 <template>
   <div class="min-h-screen relative font-sans transition-colors duration-300">
     <Analytics />
+    <SpeedInsights />
     <MatrixBackground />
     <TerminalHeader />
 
