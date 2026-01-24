@@ -13,8 +13,8 @@
       </p>
       
       <div class="mt-8 md:mt-12 flex justify-center gap-4 md:gap-6 flex-wrap px-4">
-        <router-link to="/projects" class="px-6 py-2 md:px-8 md:py-3 border-2 border-black bg-black text-white hover:bg-white hover:text-black dark:border-hacker-green dark:bg-transparent dark:text-hacker-green dark:hover:bg-hacker-green dark:hover:text-black transition-all font-mono font-bold uppercase tracking-widest shadow-lg hover:shadow-none text-xs md:text-base">
-          View Projects
+        <router-link to="/achievements" class="px-6 py-2 md:px-8 md:py-3 border-2 border-black bg-black text-white hover:bg-white hover:text-black dark:border-hacker-green dark:bg-transparent dark:text-hacker-green dark:hover:bg-hacker-green dark:hover:text-black transition-all font-mono font-bold uppercase tracking-widest shadow-lg hover:shadow-none text-xs md:text-base">
+          View Achievements
         </router-link>
         <router-link to="/contact" class="px-6 py-2 md:px-8 md:py-3 border-2 border-black text-black hover:bg-black hover:text-white dark:border-gray-500 dark:text-gray-300 dark:hover:border-white dark:hover:text-white transition-all font-mono font-bold uppercase tracking-widest text-xs md:text-base">
           Contact Me
